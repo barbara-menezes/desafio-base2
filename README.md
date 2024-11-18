@@ -59,7 +59,7 @@ Com tudo configurado, você pode rodar os testes utilizando o Maven. Para execut
 mvn test -e
 ```
 
-![build success](../desafio-base2/screenshot_build_success.png)
+![build success](screenshot_build_success.png)
 
 ## Contato
 
