@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
 import automatizado.page.LoginPO;
+import io.github.cdimascio.dotenv.Dotenv;
 
 @TestMethodOrder(MethodOrderer.DisplayName.class)
 public class LoginTest extends BaseTest{
@@ -53,8 +54,11 @@ public class LoginTest extends BaseTest{
 
     @Test 
     public void TC004_naoDeveRealizarLoginComUsuarioCorretoESenhaIncorreta(){
+        Dotenv dotenv = Dotenv.configure()
+        .directory("../.env")
+        .load();
 
-        loginPage.executarAcaoDeLogar("Barbara_Menezes", "test");
+        loginPage.executarAcaoDeLogar(dotenv.get("USER_NAME"), "test");
         loginPage.esperarElementoVisivel(loginPage.loginSuccess);
         
         String resultado = "Your account may be disabled or blocked or the username/password you entered is incorrect.";
@@ -64,8 +68,11 @@ public class LoginTest extends BaseTest{
 
     @Test 
     public void TC005_deveRealizarLoginComUsuarioCorretoESenhaCorreta(){
+        Dotenv dotenv = Dotenv.configure()
+                              .directory("../.env")
+                              .load();
 
-        loginPage.executarAcaoDeLogar("Barbara_Menezes", "Test");
+        loginPage.executarAcaoDeLogar(dotenv.get("USER_NAME"), dotenv.get("PASSWORD"));
         loginPage.esperarElementoVisivel(loginPage.loginSuccess);
         
         String resultado = "My View - MantisBT";

@@ -9,6 +9,7 @@ import org.junit.jupiter.api.TestMethodOrder;
 
 import automatizado.page.LoginPO;
 import automatizado.page.LogoffPO;
+import io.github.cdimascio.dotenv.Dotenv;
 
 @TestMethodOrder(MethodOrderer.DisplayName.class)
 public class LogoffTest extends BaseTest{
@@ -18,8 +19,12 @@ public class LogoffTest extends BaseTest{
 
     @BeforeAll
     public static void prepararTests(){
+        Dotenv dotenv = Dotenv.configure()
+                              .directory("../.env")
+                              .load();
+
         loginPage = new LoginPO(driver);
-        loginPage.executarAcaoDeLogar("Barbara_Menezes", "Test");
+        loginPage.executarAcaoDeLogar(dotenv.get("USER_NAME"), dotenv.get("PASSWORD"));
         loginPage.esperarElementoVisivel(loginPage.loginSuccess);
         logoffPage = new LogoffPO(driver);
     }
