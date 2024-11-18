@@ -27,7 +27,7 @@ Clone este repositório para o seu ambiente local:
 
 ```bash
 git clone git@github.com:barbara-menezes/desafio-base2.git
-cd desafio-base2
+cd desafio-base2/automatizado
 ```
 
 ### 2. Instalar as Dependências
