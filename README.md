@@ -44,7 +44,7 @@ mvn install
 
 ### 4. Configurar Variáveis de Ambiente
 
-O projeto usa o **JavaDotenv** para carregar variáveis de ambiente. Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis utilizando dados reais de usuário e senha (esses dados foram repassados por email para a base2 conforme solicitado):
+O projeto usa o **JavaDotenv** para carregar variáveis de ambiente. Preencha o arquivo `.env` na raiz do projeto com as seguintes variáveis utilizando dados reais de usuário e senha (esses dados foram repassados por email para a base2 conforme solicitado):
 
 ```
 USER_NAME=
