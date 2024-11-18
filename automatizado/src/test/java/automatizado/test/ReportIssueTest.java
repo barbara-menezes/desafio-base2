@@ -2,12 +2,16 @@ package automatizado.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import automatizado.page.LoginPO;
+import automatizado.page.MyViewPO;
 import automatizado.page.ReportIssuePO;
 import io.github.cdimascio.dotenv.Dotenv;
 
@@ -17,7 +21,7 @@ public class ReportIssueTest extends BaseTest{
     private static LoginPO loginPage;
     private static ReportIssuePO reportIssuePage;
 
-    @BeforeAll
+   @BeforeAll
     public static void prepararTests(){
         Dotenv dotenv = Dotenv.configure()
                               .directory("../.env")

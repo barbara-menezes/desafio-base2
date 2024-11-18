@@ -87,7 +87,6 @@ public class ReportIssuePO extends BasePO{
     }
     
     public void cadastrarIssue(){
-        clicarBotaoMenuReportIssue();
         cadastrarCategory();
         inserirSummary();
         inserirDescription();
