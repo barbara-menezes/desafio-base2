@@ -37,13 +37,11 @@ public class ReportIssueTest extends BaseTest{
     @Test 
     public void TC002_deveCadastrarIssueApenasComCamposObrigatorios(){
 
-        reportIssuePage.clicarBotaoMenuReportIssue();
-        reportIssuePage.cadastrarCategory();
-        reportIssuePage.inserirSummary();
-        reportIssuePage.inserirDescription();
-        reportIssuePage.submitReportIssue();
+        reportIssuePage.cadastrarIssue();
 
-        assertEquals(loginPage, driver);
+        String resultado = "Operation successful.";
+
+        assertEquals(reportIssuePage.obterMensagemSucesso(), resultado);
     }
     
 }

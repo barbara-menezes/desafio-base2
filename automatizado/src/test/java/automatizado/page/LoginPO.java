@@ -21,6 +21,9 @@ public class LoginPO  extends BasePO{
     @FindBy(className = "navbar-brand")
     public WebElement loginSuccess;
 
+    @FindBy(css = "h4.header.lighter.bigger")
+    public WebElement titleLogin;
+
     public LoginPO(WebDriver driver){
         super(driver);
     }
@@ -39,6 +42,10 @@ public class LoginPO  extends BasePO{
 
     public String obterMensagem(){
         return divMessage.getText();
+    }
+
+    public String obterTitleLogin(){
+        return titleLogin.getText();
     }
 
     public String obterTitlePaginaPrincipal(){

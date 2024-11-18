@@ -26,10 +26,9 @@ public class LoginTest extends BaseTest{
         loginPage.inserirEmail("");
         loginPage.clicarBotaoLogin();
 
-        String resultado = loginPage.obterMensagem();
-        String resultadoObtido = "Your account may be disabled or blocked or the username/password you entered is incorrect.";
+        String resultado = "Your account may be disabled or blocked or the username/password you entered is incorrect.";
         
-        assertEquals(resultado, resultadoObtido);
+        assertEquals(loginPage.obterMensagem(), resultado);
     }
 
     @Test 
@@ -37,10 +36,9 @@ public class LoginTest extends BaseTest{
 
         loginPage.executarAcaoDeLogar("User_Test", "");
 
-        String resultado = loginPage.obterMensagem();
-        String resultadoObtido = "Your account may be disabled or blocked or the username/password you entered is incorrect.";
+        String resultado = "Your account may be disabled or blocked or the username/password you entered is incorrect.";
         
-        assertEquals(resultado, resultadoObtido);
+        assertEquals(loginPage.obterMensagem(), resultado);
     }
 
     @Test 
@@ -48,10 +46,9 @@ public class LoginTest extends BaseTest{
 
         loginPage.executarAcaoDeLogar("User_Test", "test");
 
-        String resultado = loginPage.obterMensagem();
-        String resultadoObtido = "Your account may be disabled or blocked or the username/password you entered is incorrect.";
+        String resultado = "Your account may be disabled or blocked or the username/password you entered is incorrect.";
         
-        assertEquals(resultado, resultadoObtido);
+        assertEquals(loginPage.obterMensagem(), resultado);
     }
 
     @Test 
@@ -60,10 +57,9 @@ public class LoginTest extends BaseTest{
         loginPage.executarAcaoDeLogar("Barbara_Menezes", "test");
         loginPage.esperarElementoVisivel(loginPage.loginSuccess);
         
-        String resultado = loginPage.obterMensagem();
-        String resultadoObtido = "Your account may be disabled or blocked or the username/password you entered is incorrect.";
+        String resultado = "Your account may be disabled or blocked or the username/password you entered is incorrect.";
         
-        assertEquals(resultado, resultadoObtido);
+        assertEquals(loginPage.obterMensagem(), resultado);
     }
 
     @Test 
@@ -72,9 +68,8 @@ public class LoginTest extends BaseTest{
         loginPage.executarAcaoDeLogar("Barbara_Menezes", "Test");
         loginPage.esperarElementoVisivel(loginPage.loginSuccess);
         
-        String resultado = loginPage.obterTitlePaginaPrincipal();
-        String resultadoObtido = "My View - MantisBT";
+        String resultado = "My View - MantisBT";
         
-        assertEquals(resultado, resultadoObtido);
+        assertEquals(loginPage.obterTitlePaginaPrincipal(), resultado);
     }
 }

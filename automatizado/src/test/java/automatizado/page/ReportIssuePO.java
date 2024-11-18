@@ -48,6 +48,9 @@ public class ReportIssuePO extends BasePO{
     @FindBy(xpath = "//*[@id=\"report_bug_form\"]/div/div[1]/h4")
     public WebElement titleHeader;
 
+    @FindBy(xpath = "//p[text()='Operation successful.']")
+    public WebElement titleIssueCreatedSucess;
+
     public ReportIssuePO(WebDriver driver){
         super(driver);
     }
@@ -67,16 +70,27 @@ public class ReportIssuePO extends BasePO{
 
     public void inserirSummary(){
         inputSummary.click();
-        inputSummary.sendKeys("New Bug");
+        inputSummary.sendKeys("Unable to log in with valid credentials");
     }
 
     public void inserirDescription(){
         inputDescription.click();
-        inputDescription.sendKeys("The bug is related to ....");
+        inputDescription.sendKeys("Steps to reproduce the issue: 1. Navigate to the login page ... ");
     }
 
     public void submitReportIssue(){
         buttonSubmitIssue.click();
     }
+
+    public String obterMensagemSucesso(){
+        return titleIssueCreatedSucess.getText();
+    }
     
+    public void cadastrarIssue(){
+        clicarBotaoMenuReportIssue();
+        cadastrarCategory();
+        inserirSummary();
+        inserirDescription();
+        submitReportIssue();
+    }
 }
